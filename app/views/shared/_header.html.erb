@@ -35,7 +35,7 @@
 								<li><%= link_to "#" do%><i class="fa fa-user"></i> Tài khoản <%end%></li>
 								<li><%= link_to "#" do%><i class="fa fa-star"></i> Sản phẩm yêu thích <%end%></li>
 								<li><%= link_to "#" do%><i class="fa fa-shopping-cart"></i> Giỏ hàng<%end%></li>
-								<li><%= link_to "#" do%><i class="fa fa-lock"></i> Đăng nhập <%end%>
+								<li><%= link_to login_path do%><i class="fa fa-lock"></i> Đăng nhập <%end%>
 							</ul>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 					<div class="col-sm-9">
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Trang chủ</a></li>
+								<li><%=link_to root_path do %>Trang chủ<% end %></li>
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Sản phẩm</a></li>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'signup' => 'users#new'
   get 'user/edit'
   root 'home#index'
   get 'login' => 'home#login'
+  get 'signup' => 'users#new'
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
