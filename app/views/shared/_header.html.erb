@@ -32,10 +32,14 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
+								<%if logged_in?	%>
 								<li><%= link_to "#" do%><i class="fa fa-user"></i> Tài khoản <%end%></li>
 								<li><%= link_to "#" do%><i class="fa fa-star"></i> Sản phẩm yêu thích <%end%></li>
 								<li><%= link_to "#" do%><i class="fa fa-shopping-cart"></i> Giỏ hàng<%end%></li>
+								<li><%= link_to logout_path, method: :delete do%><i class="fa fa-lock"></i> Đăng xuat <%end%>
+								<%else%>
 								<li><%= link_to login_path do%><i class="fa fa-lock"></i> Đăng nhập <%end%>
+								<% end %>
 							</ul>
 						</div>
 					</div>
