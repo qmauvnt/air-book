@@ -4,70 +4,25 @@
 					<div class="left-sidebar">
 						<h2>Thể loại</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							<% Genre.all.each do |genre|%>
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sách Tiếng Anh
+											<%=link_to genre.name%>
 										</a>
 									</h4>
 								</div>
 								<div id="sportswear" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#"> </a></li>
-											<li><a href="#"> </a></li>
-											<li><a href="#"> </a></li>
-											<li><a href="#">Sách Nuôi Dạy Con</a></li>
 											<li><a href="#"></a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sách Kỹ Năng Sống - Nghệ Thuật Sống
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sách Kinh Tế
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Sách Văn Học - Tiểu Thuyết</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Sách Chuyên Ngành</a></h4>
-								</div>
-							</div>
+							<% end %>
 						</div><!--/category-products-->
 					
 						<div class="brands_products"><!--brands_products-->

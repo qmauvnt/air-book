@@ -63,7 +63,7 @@
                 </span>
                 <p><b>Availability:</b> In Stock</p>
                 <p><b>Condition:</b> New</p>
-                <p><b>Genre:</b> <%=@book.genre%></p>
+                <p><b>Genre:</b> <%=Genre.find(@book.genre_id).name%></p>
                 <!-- Likeshare
                 <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a> -->
               </div><!--/product-information-->
