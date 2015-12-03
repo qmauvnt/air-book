@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'user/edit'
-  root 'home#index'
+  # root 'home#index'
   get 'signup' => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'shop' => 'books#index'
-  # root 'books#index'
+  root 'books#index'
   resources :genres
   resources :users
   resources :carts
