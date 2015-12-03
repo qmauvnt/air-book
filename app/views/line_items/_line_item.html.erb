@@ -1,0 +1,25 @@
+<% @cart.line_items.each do |item|%>
+						<tr>
+							<td class="cart_product">
+								<%=image_tag item.book.image_file_name%>
+							</td>
+							<td class="cart_description">
+								<h4><%=item.book.title%></h4>
+								<p>by <%=item.book.author%></p>
+							</td>
+							<td class="cart_price">
+								<p><%=item.book.price%></p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<input class="cart_quantity_input" type="text" name="quantity" value="<%=item.quantity%>" autocomplete="off" size="1">
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price"><%= item.total%></p>
+							</td>
+							<td class="cart_delete">
+								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+						<%end%>

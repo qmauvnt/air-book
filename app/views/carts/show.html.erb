@@ -1,0 +1,37 @@
+<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+					<%= link_to "Home", root_path%> >> Shopping Cart
+				</ol>
+			</div>
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="total">Total</td>
+							<td></td>
+						</tr>
+					</thead>
+					<%total_cart = 0%>
+					<tbody>
+						<%= render @cart.line_items%>
+					</tbody>
+				</table>
+				<div class="col-sm-6 pull-right">
+					<div class="total_area">
+						<ul>
+							<li>Total <span><%=@cart.total_price%></span></li>
+						</ul>
+							<%= button_to 'Empty cart', @cart, method: :delete,
+														data: { confirm: 'Are you sure?' } %>
+							<a class="btn btn-default check_out" href="">Check Out</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> <!--/#cart_items-->

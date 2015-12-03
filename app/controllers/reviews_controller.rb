@@ -36,10 +36,5 @@ before_action :logged_in_user, only: [:create]
   def set_book
     @book = Book.find(params[:book_id])
   end
-  def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in before create a review"
-        redirect_to login_url
-      end
-    end
+  
 end

@@ -8,10 +8,15 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'shop' => 'books#index'
+  # root 'books#index'
+  resources :genres
   resources :users
+  resources :carts
+  resources :line_items
   resources :books do
     resources :reviews
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
