@@ -1,7 +1,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3">
+					
 					<div class="left-sidebar">
+						<div class="brands_products"><!--brands_products-->
+							<%if current_user.present?%>
+							<% if @cart %>
+								<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+									<%= render @cart %>
+								<% end %>
+							<% end %>
+							<% end %>
+						</div><!--/brands_products-->
 						<h2>Thể loại</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<% Genre.all.each do |genre|%>
@@ -24,7 +34,7 @@
 							</div>
 							<% end %>
 						</div><!--/category-products-->
-					
+						
 						<div class="brands_products"><!--brands_products-->
 							<h2>Nhà xuất bản</h2>
 							<div class="brands-name">

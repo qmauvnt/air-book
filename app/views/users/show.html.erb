@@ -1,0 +1,12 @@
+<% provide(:title, "User account") %>
+<section id="cart_items">
+    <div class="container">
+      <div class="breadcrumbs">
+              <ol class="breadcrumb">
+                <%= link_to "Home", root_path%> >> User account
+              </ol>
+      </div>
+      	<%= render @user%>
+      	<%= link_to "Edit", edit_user_path%>
+    </div>
+</section>

@@ -1,9 +1,6 @@
   <div class="product-details"><!--product-details-->
             <div class="col-sm-5">
-              <div class="view-product">
                 <%=image_tag @book.image_file_name %>
-                <h3>ZOOM</h3>
-              </div>
               <div id="similar-product" class="carousel slide" data-ride="carousel">
                 
                   <!-- Wrapper for slides -->
@@ -49,10 +46,7 @@
                   <label>Quantity:</label>
                   <input type="text" value="3" /></span>
                   <span>
-                  <button type="button" class="btn btn-fefault cart">
-                    <i class="fa fa-shopping-cart"></i>
-                    Add to cart
-                  </button>
+                  <%= button_to 'Add to Cart',line_items_path(book_id: book) %>
                   <button type="button" class="btn btn-fefault cart">
                     <i class="fa fa-star"></i>
                     Add to wishlist

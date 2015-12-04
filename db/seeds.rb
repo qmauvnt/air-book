@@ -8,7 +8,20 @@
 Genre.delete_all
 Genre.create(id: "1", name: "Sách Tiếng Anh")
 Genre.create(id: "2", name: "Sách Văn Học - Tiểu Thuyết")
-Genre.create(id: "3", name: "Sách Kinh Tế")
+Genre.create(id: "3", name: "Sách Chuyên Ngành")
+Genre.create(id: "4", name: "Sách Nuôi Dạy Con")
+Genre.create(id: "5", name: "Sách Kỹ Năng Sống - Nghệ Thuật Sống")
+Genre.create(id: "6", name: "Sách Giáo Khoa - Tham Khảo")
+Genre.create(id: "7", name: "Sách Học Ngoại Ngữ - Từ Điển")
+Genre.create(id: "8", name: "Sách Cho Tuổi Mới Lớn")
+Genre.create(id: "9", name: "Sách Truyện Thiếu Nhi")
+Genre.create(id: "10", name: "Sách Thường Thức - Đời Sống")
+Genre.create(id: "11", name: "Sách Tô Màu Dành Cho Người Lớn")
+Genre.create(id: "12", name: "Truyện Tranh, Manga, Comic")
+Genre.create(id: "13", name: "Sách Văn Hoá - Nghệ Thuật - Du Lịch")
+Genre.create(id: "14", name: "Tạp Chí")
+Genre.create(id: "15", name: "Combo - Series Sách Đặc Sắc")
+
 
 
 Book.delete_all
