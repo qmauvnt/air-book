@@ -5,6 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Genre.delete_all
+Genre.create(id: "1", name: "Sách Tiếng Anh")
+Genre.create(id: "2", name: "Sách Văn Học - Tiểu Thuyết")
+Genre.create(id: "3", name: "Sách Kinh Tế")
+
+
 Book.delete_all
 Book.where(title: 'The Hobbit').first_or_create!(title: 'The Hobbit', author: 'J.R.R. Tolkien', price: 22.68, genre_id: '1', published_on: '1937-09-21', image_file_name: 'TheHobbit.jpg', abstract: 'Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life, rarely traveling any farther than his pantry or cellar. But his contentment is disturbed when the wizard Gandalf and a company of dwarves arrive on his doorstep one day to whisk him away on an adventure. They have launched a plot to raid the treasure hoard guarded by Smaug the Magnificent, a large and very dangerous dragon. Bilbo reluctantly joins their quest, unaware that on his journey to the Lonely Mountain he will encounter both a magic ring and a frightening creature known as Gollum.')
 Book.where(title: 'The Fellowship of the Ring').first_or_create!(title: 'The Fellowship of the Ring', author: 'J.R.R. Tolkien', price: 8.09, genre_id: '1', published_on: '1954-07-29', image_file_name: 'FellowshipOfTheRing.jpg', abstract: 'The Fellowship of the Ring is the first of three volumes of the epic novel The Lord of the Rings by the English author J. R. R. Tolkien. It takes place in the fictional universe of Middle-earth. It was originally published on July 29, 1954 in the United Kingdom.')
@@ -20,3 +26,4 @@ Book.where(title: 'Snow Crash').first_or_create!(title: 'Snow Crash', author: 'N
 Book.where(title: 'The Diamond Age').first_or_create!(title: 'The Diamond Age', author: 'Neal Stephenson', price: 9.99, genre_id: '2', published_on: '1998-08-27', image_file_name: 'TheDiamondAge.jpg', abstract: "The Diamond Age: Or, A Young Lady's Illustrated Primer is a postcyberpunk novel by Neal Stephenson. It is to some extent a science fiction bildungsroman or coming-of-age story, focused on a young girl named Nell, and set in a future world in which nanotechnology affects all aspects of life.")
 Book.where(title: 'Kill Decision').first_or_create!(title: 'Kill Decision', author: 'Daniel Suarez', price: 10.50, genre_id: '2', published_on: '2012-07-19', image_file_name: 'KillDecision.jpg', abstract: "Kill Decision is a science fiction novel by Daniel Suarez published in 2012. It deals with themes of espionage, artificial intelligence, and warfare using robots and drones. The story deals with the fictional scenario where insurgents have created automated drones that identify enemies and make the decision to kill them (the 'Kill Decision' ) without human intervention.")
 Book.where(title: 'Influx').first_or_create!(title: 'Influx', author: 'Daniel Suarez', price: 20.50, genre_id: '2', published_on: '2014-02-20', image_file_name: 'Influx.jpg', abstract: "Imagine that scientists and researchers have already achieved major technological breakthroughs that could transform billions of lives—but they've done so in a world where the open exchange of ideas is viewed as dangerous and major technological advances are carefully managed.")
+
