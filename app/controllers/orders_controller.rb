@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 		if @order.save
 			Cart.destroy(session[:cart_id])
 			session[:cart_id] = nil
-			OrderNotifier.received(@order).deliver
+			OrderNotifier.received(@order).deliver_now
 			format.html { redirect_to root_path, success:
 			'Thank you for your order.' }
 			format.json { render action: 'show', status: :created,

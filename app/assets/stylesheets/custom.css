@@ -21,6 +21,10 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+.image-big{
+  max-height:450px; 
+  max-width:650px;
+}
 .image-size {
   max-width: 170px;
   max-height: 250px;
@@ -28,6 +32,7 @@ input {
 .image-small{
   max-width: 60px; 
   max-height: 100px;
+
 }
 .depot_form {
 fieldset {

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
   get 'orders/new'
 
   get 'sessions/new'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'index' =>'home#index'
+  get 'admin' => 'admin#index'
   get 'shop' => 'books#index'
   root 'books#index'
   resources :genres
@@ -18,7 +21,6 @@ Rails.application.routes.draw do
   resources :carts
   resources :line_items
   resources :books do
-    get :who_bought, on: :member
     resources :reviews
   end
 

@@ -1,20 +1,20 @@
 atom_feed do |feed|
-feed.title "Who bought #{@product.title}"
-feed.updated @latest_order.try(:updated_at)
-@product.orders.each do |order|
+	feed.title "Who bought #{@book.title}"
+	feed.updated @latest_order.try(:updated_at)
+	@book.orders.each do |order|
 feed.entry(order) do |entry|
 entry.title "Order #{order.id}"
 entry.summary type: 'xhtml' do |xhtml|
 xhtml.p "Shipped to #{order.address}"
 xhtml.table do
 xhtml.tr do
-xhtml.th 'Product'
+xhtml.th 'book'
 xhtml.th 'Quantity'
 xhtml.th 'Total Price'
 end
 order.line_items.each do |item|
 xhtml.tr do
-xhtml.td item.product.title
+xhtml.td item.book.title
 xhtml.td item.quantity
 xhtml.td number_to_currency item.total_price
 end

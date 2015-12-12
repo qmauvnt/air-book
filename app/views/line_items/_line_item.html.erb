@@ -1,33 +1,9 @@
-<% @cart.line_items.each do |item|%>
-	<tr>
-		<% if item == @current_item %>
-			<tr id="current_item">
-		<% else %>
-			<tr>
-		<% end %>
-		<td>
-			<%= link_to book_path(item.book_id) do %>
-			<%=image_tag item.book.image_file_name, :class =>"image-small"%>
-			<% end %>
-		</td>
-		<td class="cart_description">
-			<%= link_to book_path(item.book_id) do %>
-			<h4><%=item.book.title%></h4>
-			<p>by <%=item.book.author%></p>
-			<% end %>
-		</td>
-		<td>
-			<p><%=item.book.price%></p>
-		</td>
-		<td>
-			<p><%=item.quantity%></p>
-		</td>
-		<td class="cart_total">
-			<p class="cart_total_price"><%= item.total%></p>
-		</td>
-		<!-- <td class="cart_delete">
-			<%= link_to "Delete", item, method: :delete%>
-			<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-		</td> -->
-	</tr>
-<%end%>
+<% if line_item == @current_item %>
+<tr id="current_item">
+<% else %>
+<tr>
+<% end %>
+<td><%= line_item.quantity %>&times;</td>
+<td><%= line_item.book.title %></td>
+<td class="item_price"><%= number_to_currency(line_item.total) %></td>
+</tr>
