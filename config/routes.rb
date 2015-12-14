@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'index' =>'home#index'
   get 'admin' => 'admin#index'
+  get 'users' => 'admin#user'
   get 'shop' => 'books#index'
   root 'books#index'
   resources :genres
