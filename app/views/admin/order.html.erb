@@ -8,11 +8,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Users <small>Users Management</small>
+                            Books <small>Books Management</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard / <i class="fa fa-users"></i> Users
+                                <i class="fa fa-dashboard"></i> Dashboard / <i class="fa fa-book"></i> Books
                             </li>
                         </ol>
                     </div>
@@ -21,7 +21,7 @@
             <div class="row-fluid sortable">        
                 <div class="box span12">
                     <div class="box-header" data-original-title>
-                        <h2><i class="halflings-icon white user"></i><span class="break"></span>Users list</h2>
+                        <h2><i class="halflings-icon white user"></i><span class="break"></span>All books</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -32,7 +32,8 @@
                         <table class="table table-striped table-bordered bootstrap-datatable datatable">
                           <thead>
                               <tr>
-                                  <th>Username</th>
+                              	  <th>Cover</th>
+                                  <th>Title</th>
                                   <th>Email</th>
                                   <th>Registered date</th>
                                   <th>Role</th>
@@ -40,29 +41,8 @@
                               </tr>
                           </thead>   
                           <tbody>
-                            <%User.all.each do |user|%>
+                            <%Order.all.each do |order|%>
                             <tr>
-                                <td><%=user.name%></td>
-                                <td class="center"><%=user.email%></td>
-                                <td class="center"><%=user.created_at.strftime("%d/%m/%Y") %></td>
-                                <td class="center"><% if user.admin?%> Admin <% else%> User <% end %> </td>
-                                <td class="center">
-                                    <%= link_to user_path(user) do%>
-                                      <span class="btn btn-success">
-                                       <i class="fa fa-info"></i></i>
-                                    </span>
-                                    <% end %> 
-                                    <%= link_to edit_user_path(user) do%>
-                                      <span class="btn btn-info">
-                                       <i class="fa fa-pencil-square-o"></i>
-                                    </span>
-                                    <% end %> 
-                                    <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } do%>
-                                      <span class="btn btn-danger">
-                                       <i class="fa fa-trash"></i>
-                                    </span>
-                                    <% end %>
-                                    
                                 </td>
                             </tr>
                             <% end %>

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   get 'users' => 'admin#user'
   get 'shop' => 'books#index'
+  get 'bookss' => 'admin#book'
   root 'books#index'
+  get 'orders' => 'admin#order'
   resources :genres
   resources :orders
   resources :users
