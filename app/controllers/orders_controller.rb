@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
   def new
 	if @cart.line_items.empty?
 		flash.now[:error] = "Your cart is empty"
@@ -10,6 +9,9 @@ class OrdersController < ApplicationController
 		@order = Order.new(name: current_user.name, email: current_user.email)
   end
 
+  def show
+  	@order=Order.find(params[:id])
+  end
   def create
 	@order = Order.new(order_params)
 	@order.add_line_items_from_cart(@cart)

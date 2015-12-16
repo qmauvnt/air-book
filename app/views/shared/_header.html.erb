@@ -35,7 +35,7 @@
 								<%if logged_in?	%>
 								<li><%= link_to user_path(current_user) do%><i class="fa fa-user"></i> Tài khoản <%end%></li>
 								<li><%= link_to "#" do%><i class="fa fa-star"></i> Sản phẩm yêu thích <%end%></li>
-								<li><%= link_to cart_path(@cart) do%><i class="fa fa-shopping-cart"></i> Giỏ hàng <%end%></li>
+								<li><%= link_to cart_path(session[:cart_id]) do%><i class="fa fa-shopping-cart"></i> Giỏ hàng <%end%></li>
 								<li><%= link_to logout_path, method: :delete do%><i class="fa fa-fw fa-power-off"></i> Đăng xuat <%end%></li>
 								<%else%>
 								<li><%= link_to login_path do%><i class="fa fa-lock"></i> Đăng nhập <%end%></li>

@@ -26,6 +26,11 @@ before_action :admin_user,     only: [:destroy, :show]
   
   def edit
       @user = User.find(params[:id])
+      if current_user.admin?
+        render :layout =>"admin"
+      else
+        render :layout => "application"
+      end
   end
   
    def update

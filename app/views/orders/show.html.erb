@@ -1,3 +1,4 @@
-<%= for order in @order%>
-<%= render order%>
+<% @order.line_items.all.each do |item|%>
+	<%=item.book.title%>
+	<%=item.quantity%>
 <%end%>

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<%=render 'sidebar'%>
+	<%=render 'admin/sidebar'%>
 	<% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>

@@ -19,7 +19,7 @@ module ApplicationHelper
 		if current_user.nil?
 			"AIRBOOK"
 		else
-			current_user.name+ "'s" + "AIRBOOK"
+			current_user.name+ "'s" + " AIRBOOK"
 		end
 		
 	end
