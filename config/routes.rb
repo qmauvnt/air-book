@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'wishlists/new'
+
+  get 'wishlists/show'
+
   get 'admin/index'
 
   get 'orders/new'
@@ -16,10 +20,13 @@ Rails.application.routes.draw do
   get 'users' => 'admin#user'
   get 'shop' => 'books#index'
   get 'bookss' => 'admin#book'
+  get 'reviews' => 'admin#review'
+  get 'wishlist' => 'wishlists#show'
   root 'books#index'
   get 'orders' => 'admin#order'
   resources :genres
   resources :orders
+  resources :wishlists
   resources :users
   resources :carts
   resources :line_items

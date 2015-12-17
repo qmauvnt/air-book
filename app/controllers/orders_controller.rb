@@ -11,6 +11,12 @@ class OrdersController < ApplicationController
 
   def show
   	@order=Order.find(params[:id])
+  	render :layout => 'admin'
+  end
+  def destroy
+  	Order.find(params[:id]).destroy
+  	flash[:success] = "Successfully deleted..."
+  	redirect_to orders_path
   end
   def create
 	@order = Order.new(order_params)

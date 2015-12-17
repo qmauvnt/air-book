@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
 before_action :logged_in_user, only: [:index, :edit, :update]  
-before_action :admin_user,     only: [:destroy, :show]
+before_action :admin_user,     only: [:destroy]
 
   def show
     @user=User.find(params[:id])
+     if current_user.admin?
+        render :layout =>"admin"
+      else
+        render :layout => "application"
+      end
   end
+  
   def index 
     @users = User.paginate(page: params[:page])
   end

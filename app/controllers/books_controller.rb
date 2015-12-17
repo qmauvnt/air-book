@@ -1,4 +1,16 @@
 class BooksController < ApplicationController
+	def new
+		@book=Book.new		
+		render :layout => 'admin'
+	end
+	def create
+		if Book.create(book_params)
+			flash[:success] = "Book created..."
+			redirect_to bookss_path
+		else
+			render 'new'
+		end
+	end
 def index
 	@books=Book.all
 end
@@ -16,7 +28,9 @@ def update
 	end
 end
 def destroy
-	@book.destroy
+	Book.find(params[:id]).destroy
+		flash[:success] = "Book deleted..."
+	redirect_to bookss_path
 end
 def show
 	@book = Book.find(params[:id])	

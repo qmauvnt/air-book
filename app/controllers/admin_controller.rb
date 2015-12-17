@@ -1,5 +1,8 @@
 class AdminController < ApplicationController
-	before_action :admin_user, only:[:index, :user]
+	before_action :admin_user, only:[:index, :user, :book, :order, :review]
+  def review
+    @reviews=Review.all
+  end
   def index
  	render :layout => "admin"
   end

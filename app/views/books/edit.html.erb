@@ -18,7 +18,7 @@
             <%= f.label :abstract %>
             <%= f.text_area :abstract, class: 'form-control' %>
             <%= f.label :genre_id %>
-            <%= f.select :genre_id, option=[1,2,3,4,5]%>
+            <%= f.select :genre_id, Genre.all.collect { |g| [ g.name, g.id ] }, include_blank: true %>
             <%= f.submit "Save changes", class: "btn btn-primary" %>
           <% end %>
         </div>
