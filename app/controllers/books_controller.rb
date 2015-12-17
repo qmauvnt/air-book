@@ -12,8 +12,13 @@ class BooksController < ApplicationController
 		end
 	end
 def index
-	@books=Book.all
+	if params[:search]
+        @books = Book.search(params[:search]).paginate(:page => params[:page], :per_page => 9)
+        render "home/search"
+    end
+	@books=Book.all.paginate(:page => params[:page], :per_page => 9)
 end
+
 def edit
 	@book=Book.find(params[:id])
 	render :layout => 'admin'

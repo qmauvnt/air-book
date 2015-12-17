@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
     @cart = Cart.create
     session[:cart_id] = @cart.id
   end
+
+ #  rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
+ # rescue_from ActionController::RoutingError, :with => :rescue404
+
+ #  def rescue404
+ #    render 'shared/404'
+ #  end
 end

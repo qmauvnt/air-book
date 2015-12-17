@@ -5,6 +5,7 @@
 	<div class="features_items">
 	<%= render partial: 'book_area', locals: { books: @books } %>
 	</div>
+<%= will_paginate @books %>
 </div>
 			</div>
 		</div>

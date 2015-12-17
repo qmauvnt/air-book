@@ -20,19 +20,18 @@
                                   <th>ID</th>
                                   <th>Cover</th>
                                   <th>Info</th>
-                                  <th>Author</th>
                                   <th>Price</th>
                                   <th>Publish date</th>
                                   <th>Actions</th>
                               </tr>
                           </thead>   
                           <tbody>
-                            <%Book.all.each do |book|%>
+                            <%@books=Book.paginate(:page => params[:page], :per_page => 10)%>
+                            <%@books.each do |book|%>
                             <tr>
                               <td><%= book.id%></td>
                               <td><%=image_tag book.image_file_name, :class =>"image-small"%></td>
                                 <td><%=book.title%></td>
-                                <td><%=book.author%></td>
                                 <td><%=book.price%></td>
                                 <td class="center"><%=book.created_at.strftime("%d/%m/%Y") %></td>
                                 <td class="center">
@@ -51,12 +50,12 @@
                                        <i class="fa fa-trash"></i>
                                     </span>
                                     <% end %>
-                                    
                                 </td>
                             </tr>
                             <% end %>
                           </tbody>
-                      </table>            
+                      </table>
+                            <%= will_paginate @books %>
                     </div>
                 </div><!--/span-->
             </div><!--/row-->

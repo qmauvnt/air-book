@@ -12,7 +12,7 @@ before_action :admin_user,     only: [:destroy]
   end
   
   def index 
-    @users = User.paginate(page: params[:page])
+    @users = User.all
   end
   
   def new

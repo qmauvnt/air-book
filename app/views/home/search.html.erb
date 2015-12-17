@@ -1,0 +1,16 @@
+<%= render 'home/sidebar'%>
+<div class="col-sm-9 padding-right">
+	<div class="features_items">
+	 <% if @books.present? %>
+	<%= render partial: 'books/book_area', locals: { books: @books } %>
+<% else %>
+  <p>Không có sách nào có liên quan đến cụm từ <%= params[:search] %>.</p>
+<% end %>
+	</div>
+</div>
+			</div>
+		</div>
+	</section>
+
+							
+

@@ -1,37 +1,7 @@
+
   <div class="product-details"><!--product-details-->
             <div class="col-sm-5">
                 <%=image_tag @book.image_file_name, :class => "image-big" %>
-              <div id="similar-product" class="carousel slide" data-ride="carousel">
-                
-                  <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                    <div class="item active">
-                      <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-                      <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-                      <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-                    </div>
-                    <div class="item">
-                      <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-                      <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-                      <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-                    </div>
-                    <div class="item">
-                      <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-                      <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-                      <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-                    </div>
-                    
-                  </div>
-
-                  <!-- Controls -->
-                  <a class="left item-control" href="#similar-product" data-slide="prev">
-                  <i class="fa fa-angle-left"></i>
-                  </a>
-                  <a class="right item-control" href="#similar-product" data-slide="next">
-                  <i class="fa fa-angle-right"></i>
-                  </a>
-              </div>
-
             </div>
             <div class="col-sm-7">
               <div class="product-information"><!--/product-information-->
@@ -42,31 +12,24 @@
                 <!-- Rating
                 <img src="images/product-details/rating.png" alt="" /> -->
                 
-                  <span><%=@book.price%> VND
-                  <label>Quantity:</label>
-                  <input type="text" value="3" /></span>
-                  <span>
-                  <%= button_to 'Add to Cart',line_items_path(book_id: book) %>
-                  <button type="button" class="btn btn-fefault cart">
-                    <i class="fa fa-star"></i>
-                    Add to wishlist
+                  <span><%=@book.price%> VND</span>
+                <p><b>Còn hàng</b></p>
+                <p><b>Thể loại:</b> <%=Genre.find(@book.genre_id).name%></p>
+                <%= link_to line_items_path(book_id: book) do%>
+                    <button type="button" class="btn btn-fefault cart">
+                    <i class="fa fa-cart"></i>
+                    Add to Cart
                   </button>
-                </span>
-                <p><b>Availability:</b> In Stock</p>
-                <p><b>Condition:</b> New</p>
-                <p><b>Genre:</b> <%=Genre.find(@book.genre_id).name%></p>
-                <!-- Likeshare
-                <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a> -->
-              </div><!--/product-information-->
+                  <%end%>
+                </div>
             </div>
           </div><!--/product-details-->
           
           <div class="category-tab shop-details-tab"><!--category-tab-->
             <div class="col-sm-12">
               <ul class="nav nav-tabs">
-                <li><a href="#details" data-toggle="tab">Gioi thieu</a></li>
-                <li><a href="#companyprofile" data-toggle="tab">Thong tin chi tiet</a></li>
-                <li><a href="#tag" data-toggle="tab">Tag</a></li>
+                <li><a href="#details" data-toggle="tab">Giới thiệu</a></li>
+                <li><a href="#companyprofile" data-toggle="tab">Thông tin chi tiết</a></li>
                 <li><a href="#reviews" data-toggle="tab">Reviews (<%=@book.reviews.count%>)</a></li>
               </ul>
             </div>
