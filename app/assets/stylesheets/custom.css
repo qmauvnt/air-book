@@ -5,6 +5,17 @@
  */
 
 /* Toggle Styles */
+div.hotlinediv{
+    position: absolute;
+}
+span.hotline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    background-color: #fff;
+    border: 3px solid red;
+}
 
 #wrapper {
     padding-left: 0;
