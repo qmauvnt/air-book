@@ -17,12 +17,13 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'index' =>'home#index'
   get 'admin' => 'admin#index'
+  get 'about' => 'home#about'
   get 'users' => 'admin#user'
   get 'shop' => 'books#index'
   get 'bookss' => 'admin#book'
   get 'reviews' => 'admin#review'
   get 'wishlist' => 'wishlists#show'
-  root 'books#index'
+  root 'home#index'
   get 'orders' => 'admin#order'
   resources :genres
   resources :orders

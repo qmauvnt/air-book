@@ -1,3 +1,5 @@
+<% provide(:title, "User account") %>
+<%if current_user.admin?%>
  <div id="wrapper">
     <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -17,10 +19,14 @@
                         </ol>
                     </div>
                 </div>
-            <%= render 'order'%>
+       
+<%end%> 
+<div class="container">
+        <%= render 'order'%>
             </div>
                 </div>
             </div>
+        </div>
         </div>
 </div>
 

@@ -5,11 +5,11 @@
 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Users <small>Users Management</small>
+                            Người dùng <small>Quản lý người dùng</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard / <i class="fa fa-users"></i> Users / <%=@user.name%>'s edit page
+                                <i class="fa fa-dashboard"></i> Trang chủ / <i class="fa fa-users"></i> Người dùng / <%=@user.name%>
                             </li>
                         </ol>
                     </div>
@@ -20,7 +20,7 @@
       <%unless  current_user.admin?%>
       <div class="breadcrumbs">
               <ol class="breadcrumb">
-                <%= link_to "Home", root_path%> >> Edit user account
+                <%= link_to "Home", root_path%> >> Sửa thông tin
               </ol>
             </div>
             <%end%>
@@ -41,7 +41,7 @@
             <%= f.label :password_confirmation, "Confirmation" %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-            <%= f.submit "Save changes", class: "btn btn-primary" %>
+            <%= f.submit "Lưu lại", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>

@@ -57,10 +57,10 @@
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><%= link_to shop_path do%>Sản phẩm<% end%></li>
-										<li><a href="product-details.html">Thông tin sản phẩm</a></li> 
-										<li><a href="checkout.html">Thanh toán</a></li> 
-										<li><a href="cart.html">Giỏ hàng</a></li> 
-										<li><a href="login.html">Đăng nhập</a></li>  
+										<li><%= link_to cart_path(session[:cart_id]) do%>Giỏ hàng<%end%></li> 
+										<%unless logged_in?%>
+										<li><%= link_to login_path do%>Đăng nhập <%end%></li>  
+										<%end%>
                                     </ul>
                                 </li> 
 								<li><%= link_to "#" do%><b style="color:red">HOTLINE: 1900 1234</b><% end %></li>

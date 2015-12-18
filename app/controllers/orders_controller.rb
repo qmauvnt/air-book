@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_cart, only: [:new, :create]
   def new
 	if @cart.line_items.empty?
-		flash.now[:error] = "Your cart is empty"
+		flash.now[:error] = "Giỏ hàng đã rỗng"
 		return
 	end
 		@order = Order.new(name: current_user.name, email: current_user.email)
@@ -11,31 +11,29 @@ class OrdersController < ApplicationController
 
   def show
   	@order=Order.find(params[:id])
-  	render :layout => 'admin'
+  	if current_user.admin?
+        render :layout =>"admin"
+      else
+        render :layout => "application"
+      end
   end
   def destroy
   	Order.find(params[:id]).destroy
-  	flash[:success] = "Successfully deleted..."
+  	flash[:success] = "Đã hủy đơn hàng thành công"
   	redirect_to orders_path
   end
   def create
 	@order = Order.new(order_params)
 	@order.add_line_items_from_cart(@cart)
-	respond_to do |format|
 		if @order.save
 			Cart.destroy(session[:cart_id])
 			session[:cart_id] = nil
 			OrderNotifier.received(@order).deliver_now
-			format.html { redirect_to root_path, success:
-			'Thank you for your order.' }
-			format.json { render action: 'show', status: :created,
-			location: @order }
+			flash[:success] = "Đã gửi đơn hàng thành công"
+			redirect_to root_path
 		else
-			format.html { render action: 'new' }
-			format.json { render json: @order.errors,
-			status: :unprocessable_entity }
+			render 'new'
 		end
-	end
   end
 private
 def order_params

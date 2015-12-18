@@ -7,18 +7,15 @@
               <div class="product-information"><!--/product-information-->
                 <!-- New /sale
                 <img src="images/product-details/new.jpg" class="newarrival" alt="" /> -->
-                <h2><%=@book.title%></h2>
-                <p>by <%=@book.author%></p>
+                <h1><%=@book.title%></h1>
+                <h3>by <%=@book.author%></h3>
                 <!-- Rating
                 <img src="images/product-details/rating.png" alt="" /> -->
                 
-                  <span><%=@book.price%> VND</span>
-                <p><b>Còn hàng</b></p>
-                <p><b>Thể loại:</b> <%=Genre.find(@book.genre_id).name%></p>
+                  <h2><%=@book.price%> VND</h2>
+                <h2><b>Thể loại:</b> <%=Genre.find(@book.genre_id).name%></h2><br>
                 <%= link_to line_items_path(book_id: book) do%>
-                    <button type="button" class="btn btn-fefault cart">
-                    <i class="fa fa-cart"></i>
-                    Add to Cart
+                       <button type="button" class="btn btn-lg btn-danger"><i class="fa fa-shopping-cart"></i>  Add to cart</button>
                   </button>
                   <%end%>
                 </div>
@@ -35,12 +32,45 @@
             </div>
             <div class="tab-content">
               <div class="tab-pane fade active in" id="details" >
-                <h2><%=@book.title%></h2>
-                <p><%=@book.abstract%></p>
+                <div class="jumbotron">
+                    <h1><%=@book.title%></h1>
+                    <p><%=@book.abstract%></p>
+                </div>
               </div>
               
               <div class="tab-pane fade" id="companyprofile" >
-                
+                   <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Thông tin chi tiết</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tbody>
+                                   <tr>
+                                        <td><i class="fa fa-book"></i> Tên </td>
+                                        <td><%=@book.title%></td>
+                                    </tr>
+                                   <tr>
+                                        <td><i class="fa fa-money"></i> Giá </td>
+                                        <td><%=@book.price%></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-user"></i> Tác giả</td>
+                                        <td><%=@book.author%></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-calendar"></i> Ngày xuất bản</td>
+                                        <td><%=@book.published_on.strftime("%d/%m/%Y")%></td>
+                                    </tr>
+                                   <tr>
+                                        <td><i class="fa fa-file"></i> Danh mục </td>
+                                        <td><%=Genre.find(@book.genre_id).name%></td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
               </div>
               
               <div class="tab-pane fade " id="reviews" >
@@ -60,7 +90,6 @@
                         <%=f.text_field :summary, :placeholder => "Summary"%>
                         <%=f.text_area :comment, :placeholder => "Comment"%>
                     </span>
-                    <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
                     <%= f.submit "Submit", :class =>"btn btn-default pull-right"%>
                   <%end%>
                 </div>
